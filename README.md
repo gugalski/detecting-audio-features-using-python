@@ -1,2 +1,2 @@
-# audio-features-using-python
-Fetch audio features using Python
+# detecting-audio-features-using-python
+Detecting audio features using Python
