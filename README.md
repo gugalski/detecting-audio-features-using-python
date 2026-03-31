@@ -21,10 +21,10 @@ Extracted feature sets:
 
 ```bash
 # Single file, print to stdout
-python main.py --input dataset/sample.wav --type mfcc
+python features.py --input dataset/sample.wav --type mfcc
 
 # Entire directory, save results to cache/
-python main.py --input dataset/ --type egemaps --output cache/
+python features.py --input dataset/ --type egemaps --output cache/
 ```
 
 ### `--type` — available feature types
