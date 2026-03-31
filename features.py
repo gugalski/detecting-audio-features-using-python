@@ -1,5 +1,9 @@
 import argparse
 
+import extractors
+import loader
+import output
+
 FEATURE_TYPES = [
     "mfcc",
     "egemaps",
@@ -34,10 +38,15 @@ def parse_args():
 
 def main():
     args = parse_args()
-    print(f"Input:   {args.input}")
-    print(f"Type:    {args.type}")
-    print(f"Output:  {args.output or 'stdout'}")
-    # TODO: implement feature extraction
+    files = loader.resolve_files(args.input)
+
+    if not files:
+        print("No WAV files found.")
+        return
+
+    for file_path in files:
+        features = extractors.extract(args.type, file_path)
+        output.write(file_path, features, args.output)
 
 
 if __name__ == "__main__":
