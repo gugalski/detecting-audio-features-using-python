@@ -1,0 +1,21 @@
+# Audio recordings - keep directory but ignore files
+dataset/*
+!dataset/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# Claude Code
+.claude/settings.local.json
+CLAUDE.md
+
+# Environment
+.env
+
+# OS
+.DS_Store
