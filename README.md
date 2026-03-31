@@ -21,14 +21,23 @@ Extracted feature sets:
 
 ```bash
 # Single file, print to stdout
-python main.py --input dataset/sample.wav
+python main.py --input dataset/sample.wav --type mfcc
 
 # Entire directory, save results to cache/
-python main.py --input dataset/ --output cache/
-
-# Choose feature set
-python main.py --input dataset/ --features mfcc,egemaps,spectral
+python main.py --input dataset/ --type egemaps --output cache/
 ```
+
+### `--type` — available feature types
+
+| Value | Description |
+|---|---|
+| `mfcc` | Mel-frequency cepstral coefficients |
+| `egemaps` | Extended Geneva Minimalistic Acoustic Parameter Set |
+| `spectral` | Spectral centroid, bandwidth, rolloff, zero-crossing rate |
+| `chroma` | Chroma STFT |
+| `rms` | Root mean square energy |
+
+Default: `mfcc`
 
 ## Setup
 
