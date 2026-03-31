@@ -37,7 +37,7 @@ python features.py --input dataset/ --type egemaps --output cache/
 | `chroma` | Chroma STFT |
 | `rms` | Root mean square energy |
 
-Default: `mfcc`
+Pole wymagane.
 
 ## Setup
 

@@ -20,9 +20,9 @@ def parse_args():
     )
     parser.add_argument(
         "--type",
+        required=True,
         choices=FEATURE_TYPES,
-        default="mfcc",
-        help=f"Feature type to extract. Available: {', '.join(FEATURE_TYPES)}. Default: mfcc.",
+        help=f"Feature type to extract. Available: {', '.join(FEATURE_TYPES)}.",
     )
     parser.add_argument(
         "--output",
