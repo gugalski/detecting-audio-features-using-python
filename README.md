@@ -61,7 +61,24 @@ python features.py --clear-cache
 
 ## Output
 
-Each audio file produces a separate CSV file named after the source recording (e.g. `sample.wav` → `cache/sample.csv`). The first column is the filename (without extension), followed by feature values.
+Each audio file produces a separate CSV file named after the source recording (e.g. `sample.wav` → `cache/mfcc/sample.csv`). The first column is the filename (without extension), followed by feature values.
+
+### Merging results into a single file
+
+Use `compact_features.py` to combine all per-file CSVs from a directory into one `features.csv`:
+
+```bash
+# Merge all CSVs from cache/mfcc/ → cache/mfcc/features.csv
+python compact_features.py --input cache/mfcc/
+
+# Save to a custom path
+python compact_features.py --input cache/mfcc/ --output dataset/mfcc_features.csv
+```
+
+| Argument | Required | Description |
+|---|---|---|
+| `--input` | yes | Directory containing CSV files to merge |
+| `--output` | no | Output file path (default: `<input>/features.csv`) |
 
 ## Setup
 
