@@ -1,6 +1,6 @@
 # detecting-audio-features-using-python
 
-CLI tool for extracting audio features from WAV files (16 kHz). Supports batch processing of entire directories or single files. Results can be printed to stdout or saved to the `cache/` directory.
+CLI tool for extracting audio features from WAV files (16 kHz). Supports batch processing of entire directories or single files. Results are saved as CSV files (one per audio file) or printed to stdout.
 
 ## Features
 
@@ -20,12 +20,25 @@ Extracted feature sets:
 ## Usage
 
 ```bash
-# Single file, print to stdout
+# Single file, save to cache/
 python features.py --input dataset/sample.wav --type mfcc
 
-# Entire directory, save results to cache/
-python features.py --input dataset/ --type egemaps --output cache/
+# Entire directory, save to custom output directory
+python features.py --input dataset/ --type egemaps --output results/
+
+# Print to stdout instead of saving
+python features.py --input dataset/sample.wav --type spectral --output -
 ```
+
+### Arguments
+
+| Argument | Required | Description |
+|---|---|---|
+| `--input` | yes | Path to a WAV file or directory |
+| `--type` | yes | Feature type to extract (see table below) |
+| `--output` | no | Output directory (default: `cache/`) |
+| `--clear-cache` | no | Delete all files in `cache/` |
+| `--clear-results` | no | Delete all CSV files in the output directory |
 
 ### `--type` — available feature types
 
@@ -37,7 +50,22 @@ python features.py --input dataset/ --type egemaps --output cache/
 | `chroma` | Chroma STFT |
 | `rms` | Root mean square energy |
 
-Pole wymagane.
+### Cache management
+
+```bash
+# Delete all files in cache/
+python features.py --clear-cache
+
+# Delete all CSV files in the output directory
+python features.py --clear-results
+
+# Delete all CSV files in a custom output directory
+python features.py --clear-results --output results/
+```
+
+## Output
+
+Each audio file produces a separate CSV file named after the source recording (e.g. `sample.wav` → `cache/sample.csv`). The first column is the filename (without extension), followed by feature values.
 
 ## Setup
 

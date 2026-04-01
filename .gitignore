@@ -14,9 +14,10 @@ __pycache__/
 dist/
 build/
 
-# Claude Code
+# Claude Code / AI agents
 .claude/settings.local.json
 CLAUDE.md
+AGENTS.md
 
 # Environment
 .env
