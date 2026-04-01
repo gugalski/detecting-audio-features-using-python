@@ -71,6 +71,19 @@ pip3 install -r requirements.txt
 
 Requires openSMILE installed separately: https://audeering.github.io/opensmile/
 
+## Development
+
+```bash
+# Linting
+python3 -m ruff check .
+
+# Unit tests
+python3 -m pytest
+
+# Single test file
+python3 -m pytest tests/unit/test_mfcc.py
+```
+
 ## Directory Structure
 
 ```
