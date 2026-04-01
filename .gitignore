@@ -13,6 +13,9 @@ __pycache__/
 .venv/
 dist/
 build/
+.coverage
+.pytest_cache/
+htmlcov/
 
 # Claude Code / AI agents
 .claude/settings.local.json
