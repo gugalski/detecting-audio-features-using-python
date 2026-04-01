@@ -60,11 +60,6 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Delete all files in the cache/ directory.",
     )
-    parser.add_argument(
-        "--clear-results",
-        action="store_true",
-        help="Delete all CSV files in the output directory.",
-    )
     return parser.parse_args()
 
 
@@ -74,10 +69,6 @@ def main() -> None:
 
     if args.clear_cache:
         cache_manager.clear_cache()
-        return
-
-    if args.clear_results:
-        cache_manager.clear_results(args.output)
         return
 
     if not args.input or not args.type:

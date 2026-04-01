@@ -38,7 +38,6 @@ python features.py --input dataset/sample.wav --type spectral --output -
 | `--type` | yes | Feature type to extract (see table below) |
 | `--output` | no | Output directory (default: `cache/`) |
 | `--clear-cache` | no | Delete all files in `cache/` |
-| `--clear-results` | no | Delete all CSV files in the output directory |
 
 ### `--type` — available feature types
 
@@ -55,12 +54,6 @@ python features.py --input dataset/sample.wav --type spectral --output -
 ```bash
 # Delete all files in cache/
 python features.py --clear-cache
-
-# Delete all CSV files in the output directory
-python features.py --clear-results
-
-# Delete all CSV files in a custom output directory
-python features.py --clear-results --output results/
 ```
 
 ## Output
