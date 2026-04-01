@@ -2,6 +2,9 @@
 
 CLI tool for extracting audio features from WAV files (16 kHz). Supports batch processing of entire directories or single files. Results are saved as CSV files (one per audio file) or printed to stdout.
 
+> [!WARNING]
+> This project extracts **aggregated (mean/std) features** — temporal information is collapsed into a fixed-size vector per file. This makes the output suitable for classical ML models (SVM, Random Forest, MLP) but **not** for recurrent neural networks (RNN, LSTM, GRU) or other architectures that require time-series input.
+
 ## Features
 
 Extracted feature sets:

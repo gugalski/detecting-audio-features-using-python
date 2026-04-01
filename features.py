@@ -68,7 +68,11 @@ def main() -> None:
     args = parse_args()
 
     if args.clear_cache:
-        cache_manager.clear_cache()
+        confirm = input("Are you sure you want to clear the cache? [y/N] ").strip().lower()
+        if confirm == "y":
+            cache_manager.clear_cache()
+        else:
+            logger.info("Aborted.")
         return
 
     if not args.input or not args.type:
@@ -95,7 +99,7 @@ def main() -> None:
             logger.error("Skipped {path}: {exc}", path=f, exc=exc)
 
     try:
-        output.write(results, args.output)
+        output.write(results, args.output, args.type)
     except AudioFeaturesError as exc:
         logger.error("{exc}", exc=exc)
         sys.exit(1)

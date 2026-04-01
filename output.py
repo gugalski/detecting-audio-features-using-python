@@ -9,12 +9,13 @@ from loguru import logger
 from exceptions import ExportError
 
 
-def write(results: list[dict], output_dir: Path | None) -> None:
+def write(results: list[dict], output_dir: Path | None, feature_type: str) -> None:
     """
     Write feature extraction results to CSV or print to stdout.
 
     Each audio file produces one CSV row with the filename as the primary key.
-    When saving to a directory, each audio file gets its own CSV file.
+    When saving to a directory, files are stored in a subdirectory named after
+    the feature type (e.g. cache/mfcc/sample.csv).
 
     Parameters
     ----------
@@ -22,6 +23,8 @@ def write(results: list[dict], output_dir: Path | None) -> None:
         List of {"file": Path, "features": dict[str, float]} dicts.
     output_dir : Path | None
         Output directory. None means stdout.
+    feature_type : str
+        Feature type name, used as the subdirectory name.
 
     Raises
     ------
@@ -36,7 +39,7 @@ def write(results: list[dict], output_dir: Path | None) -> None:
     if output_dir is None:
         _write_stdout(results, fieldnames)
     else:
-        _write_files(results, fieldnames, output_dir)
+        _write_files(results, fieldnames, output_dir / feature_type)
 
 
 def _write_stdout(results: list[dict], fieldnames: list[str]) -> None:

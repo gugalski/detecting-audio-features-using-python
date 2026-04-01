@@ -3,10 +3,14 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Callable
 
-from extractors import mfcc
+from extractors import chroma, egemaps, mfcc, rms, spectral
 
 _EXTRACTORS: dict[str, Callable[[Path], dict[str, float]]] = {
     "mfcc": mfcc.extract,
+    "egemaps": egemaps.extract,
+    "spectral": spectral.extract,
+    "chroma": chroma.extract,
+    "rms": rms.extract,
 }
 
 
