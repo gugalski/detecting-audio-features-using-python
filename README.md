@@ -66,7 +66,7 @@ Each audio file produces a separate CSV file named after the source recording (e
 ## Setup
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Requires openSMILE installed separately: https://audeering.github.io/opensmile/
